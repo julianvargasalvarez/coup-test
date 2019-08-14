@@ -27,3 +27,6 @@ ISSUES
 
 - Since the routines run concurrently, most of the times the channel receives more scooters
   than the `max` allowed, we should find a way to avoid this.
+- The iterator that increments the IDs repeates the process up to 2 times `max`, this
+  should be changed to make it iterate without upper limit and thus retrieve as many
+  scooters as possible within the time bounds
