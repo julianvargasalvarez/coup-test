@@ -9,6 +9,7 @@ import (
         "fmt"
         "sync"
         "strconv"
+        "os"
 )
 
 type Scooter struct {
@@ -46,7 +47,7 @@ func fetchScooter(id int64, scootersChannel chan Scooter, wg *sync.WaitGroup) {
 
         var myClient = &http.Client{Timeout: 1 * time.Second}
 
-        response, err := myClient.Get(fmt.Sprintf("%s%d", "https://qc05n0gp78.execute-api.eu-central-1.amazonaws.com/prod/BackendGoChallenge?id=", id))
+        response, err := myClient.Get(fmt.Sprintf("%s%d", os.Getenv("SERVICE_URL"), id))
 
         if err != nil {
 	  fmt.Println(err.Error())
