@@ -1,0 +1,11 @@
+version: '3'
+services:
+  web:
+    image: golang
+    working_dir: /go/src
+    stdin_open: true
+    command: go run main.go
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/go/src
