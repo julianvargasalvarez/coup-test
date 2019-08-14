@@ -106,6 +106,9 @@ func fetchAvailableScooters(upTo int) []Scooter {
 
 	for response := range scootersChannel {
 		finalResult = append(finalResult, response)
+		if len(finalResult) >= upTo {
+			break
+		}
 	}
 
 	return finalResult
